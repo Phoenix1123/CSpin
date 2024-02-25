@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoSpin - Crypto Casino</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to CryptoSpin!</h1>
+        <p>Play and win with cryptocurrency!</p>
+        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="BNB Logo" width="200">
+        <p>Connect your MetaMask wallet to get started:</p>
+        <button class="metamask-button" onclick="connectMetaMask()">Connect MetaMask</button>
+    </div>
+
+    <script>
+        async function connectMetaMask() {
+            if (window.ethereum || window.web3) {
+                try {
+                    // Request account access
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert("MetaMask connected successfully!");
+                } catch (error) {
+                    alert("MetaMask connection failed. Please make sure you have MetaMask installed and unlocked.");
+                }
+            } else {
+                alert("MetaMask not detected. Please install MetaMask to continue.");
+            }
+        }
+    </script>
+</body>
+</html>
